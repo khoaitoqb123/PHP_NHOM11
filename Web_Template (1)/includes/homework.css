@@ -36,6 +36,12 @@ ul, #myUL {
     display: block;
   }
   #a {
+    padding-left: 40px;
+  }
+  #a a {
+    color: black;
+    text-decoration: none;
+  }
+  #b {
     padding-left: 20px;
   }
-  
