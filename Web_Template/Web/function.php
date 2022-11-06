@@ -34,15 +34,31 @@ abstract class SQL{
 }
 
 class ql_quanaonam extends SQL{
-    public function searchDB($fields='*', $table='', $fieldSearch='', $search_value='')
+    public function searchDB($fields='*', $table='',$fieldSearch='', $search_value='')
     {
         $str = "SELECT $fields FROM $table";
         if($search_value == "")
         return $this->queryDB($str);
         return $this->queryDB("$str WHERE $fieldSearch LIKE '%$search_value%'");
     }
+    public function searchDB2($fields='*', $fieldSearch='', $search_value='')
+    {
+        $str = "SELECT $fields FROM `mathang` INNER JOIN `loaihang` ON `mathang`.`MaLH` = `loaihang`.`MaLH` ORDER BY `mathang`.`MaMH`";
+        if($search_value == "")
+        return $this->queryDB($str);
+        return $this->queryDB("$str WHERE $fieldSearch LIKE '%$search_value%'");
+    }
     public function insertMatHang($MaMH="",$TenMH="",$MaLH="",$SoLuong="",$GiaBan="",$Anh=""){
         $str_query = "INSERT INTO `mathang`(`MaMH`,`TenMH`,`MaLH`,`SoLuong`,`GiaBan`,`Anh`) VALUES ('$MaMH','$TenMH','$MaLH','$SoLuong','$GiaBan','$Anh')";
+        return $this->queryDB($str_query);
+    }
+    public function updateMatHang($MaMH="",$TenMH="",$MaLH="",$Soluong="",$GiaBan="",$Anh="")
+    {
+    $str_query = "UPDATE mathang SET `TenMH`='$TenMH', `MaLH`='$MaLH', `Soluong`='$Soluong', `GiaBan`='$GiaBan',`Anh`='$Anh' WHERE `MaMH`='$MaMH'";
+    return $this->queryDB($str_query);
+    }
+    public function deleteMatHang($MaMH=""){
+        $str_query = "DELETE FROM `mathang` WHERE `MaMH` = '$MaMH'";
         return $this->queryDB($str_query);
     }
     public function insertLoaiHang($MaLH="",$TenLH=""){
