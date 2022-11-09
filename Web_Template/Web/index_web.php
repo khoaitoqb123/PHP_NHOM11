@@ -1,5 +1,6 @@
 <?php
     include_once('function.php');
+    session_start();
     $ql_quanaonam->connectDB();
     $ql_quanaonam->getConnect()->select_db("ql_quanaonam");
 ?>
@@ -42,20 +43,50 @@
                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12">
-                        <div class="top_right text-right">
-                            <ul>
-                               <li class="top_links"><a href="#">My Account <i class="ion-chevron-down"></i></a>
-                                    <ul class="dropdown_links">
-                                        <li><a href="password.php">Change Password</a></li>  
-                                        <li><a href="register.php">Register</a></li>
-                                        <li><a href="view_users.php">Users</a></li>
-                                        <li><a href="login.php">Sign in</a></li> 
-                                    </ul>
-                                </li> 
-                            </ul>
-                        </div>   
-                    </div>
+                    <?php
+                        if(isset($_SESSION['Username']) && $_SESSION['Username']){
+                            if(isset($_SESSION['PhanQuyen']) && $_SESSION['PhanQuyen'] == "1"){
+                                echo "<div class='col-lg-5 col-md-12'>";
+                                    echo "<div class='top_right text-right'>";
+                                        echo "<ul>";
+                                        echo "<li class='top_links'><a href='#'>". $_SESSION['Username'] ."<i class='ion-chevron-down'></i></a>";
+                                            echo "<ul class='dropdown_links'>";
+                                                echo "<li><a href='logout.php'>Log out</a></li>";
+                                                echo "<li><a href='admin/product/product_listing.php'>Admin</a></li>" ;
+                                            echo "</ul>";
+                                        echo "</li>";
+                                        echo "</ul>";
+                                    echo "</div>";
+                                echo "</div>";
+                            }
+                            elseif(isset($_SESSION['PhanQuyen']) && $_SESSION['PhanQuyen'] == "0"){
+                                echo "<div class='col-lg-5 col-md-12'>";
+                                    echo "<div class='top_right text-right'>";
+                                        echo "<ul>";
+                                        echo "<li class='top_links'><a href='#'>". $_SESSION['Username'] ."<i class='ion-chevron-down'></i></a>";
+                                            echo "<ul class='dropdown_links'>";
+                                                echo "<li><a href='logout.php'>Log out</a></li>";
+                                            echo "</ul>";
+                                        echo "</li>";
+                                        echo "</ul>";
+                                    echo "</div>";
+                                echo "</div>";
+                            }
+                        }
+                        else{
+                            echo "<div class='col-lg-5 col-md-12'>";
+                                echo "<div class='top_right text-right'>";
+                                    echo "<ul>";
+                                    echo "<li class='top_links'><a href='#'> My account <i class='ion-chevron-down'></i></a>";
+                                        echo "<ul class='dropdown_links'>";
+                                            echo "<li><a href='login.php'>Log in</a></li>";
+                                        echo "</ul>";
+                                    echo "</li>";
+                                    echo "</ul>";
+                                echo "</div>";
+                            echo "</div>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -72,8 +103,6 @@
                                     <ul>
                                         <li class="active"><a href="index_web.php">Home</a></li>
                                         <li><a href="shop_category.php">Shop</a></li>
-                                        <li><a href="about.php">About Us</a></li>
-                                        <li><a href="contact.php">Contact Us</a></li>
                                     </ul>   
                                 </nav> 
                             </div>

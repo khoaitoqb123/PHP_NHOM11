@@ -25,14 +25,13 @@ h1{
   
 .btn-submit{
     padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
+    margin-bottom: 32px;
+    margin-top: 28px;
     background: #ddd;
     font-size: 17px;
     border: none;
     cursor: pointer;
   }
-  
  .btn-submit:hover{
     background: RGB(25, 133, 201);
   }
@@ -74,9 +73,20 @@ h1{
     float: left;
     width: 300px;
 }
+.product-name3{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 162.76px;
+}
+.product-name4{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 126px;
+}
 .product-button{
     float: right;
-    border: 1px solid #ccc;
     border-right: 0;
     padding: 0 10px;
     width: 50px;
@@ -206,6 +216,7 @@ a:hover{
 #pagination{
     text-align: right;
     margin-top: 15px;
+    margin-right: 300px;
 }
 .page-item{
     border: 1px solid #ccc;
@@ -309,4 +320,155 @@ a:hover{
     border: 1px solid #ccc;
     text-align: center;
     padding: 20px;
+}
+.categories{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+.categories ul{
+    padding: 0;
+    margin: 0;
+    
+}
+.categories ul li{
+    list-style: none;
+    width: max-content;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+    
+}
+.categories ul li:first-child{
+    border-top: 1px solid #ccc;
+    width: max-content;
+}
+.categories-prop{
+    float: left;
+    border-left: 1px solid #ccc;
+    line-height: 50px;
+    padding: 0 10px;
+}
+.categories-heading{
+    text-align: center;
+    font-weight: bold;
+}
+.categories-heading .categories-prop{
+    height: 40px;
+    line-height: 40px;
+    background: #717171;
+    color: #FFF;
+}
+.categories-name{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 50px;
+}
+.categories-name2{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 150px;
+}
+.customer{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+.customer ul{
+    padding: 0;
+    margin: 0;
+    
+}
+.customer ul li{
+    list-style: none;
+    width: max-content;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+    
+}
+.customer ul li:first-child{
+    border-top: 1px solid #ccc;
+    width: max-content;
+}
+.customer-prop{
+    float: left;
+    border-left: 1px solid #ccc;
+    line-height: 50px;
+    padding: 0 10px;
+}
+.customer-heading{
+    text-align: center;
+    font-weight: bold;
+}
+.customer-heading .customer-prop{
+    height: 40px;
+    line-height: 40px;
+    background: #717171;
+    color: #FFF;
+}
+.customer-name{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 70px;
+}
+.customer-name2{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 170px;
+}
+
+.employee{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0 0 10px 10px;
+}
+.employee ul{
+    padding: 0;
+    margin: 0;
+    
+}
+.employee ul li{
+    list-style: none;
+    width: max-content;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+    
+}
+.employee ul li:first-child{
+    border-top: 1px solid #ccc;
+    width: max-content;
+}
+.employee-prop{
+    float: left;
+    border-left: 1px solid #ccc;
+    line-height: 50px;
+    padding: 0 10px;
+}
+.employee-heading{
+    text-align: center;
+    font-weight: bold;
+}
+.employee-heading .customer-prop{
+    height: 40px;
+    line-height: 40px;
+    background: #717171;
+    color: #FFF;
+}
+.employee-name{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 50px;
+}
+.employee-name2{
+    padding-left: 10px;
+    border-right: 0;
+    float: left;
+    width: 170px;
 }

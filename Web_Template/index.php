@@ -35,7 +35,7 @@ include ('includes/header.html');
           <div class="col-12 col-sm-8 col-lg-6">
             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
               <!-- Team Thumb-->
-              <div class="advisor_thumb"><img src="img_index/nam1.jpg" alt="">
+              <div class="advisor_thumb"><img src="img_index/nam.jpg" alt="">
                 <!-- Social Info-->
                 <div class="social-info"><a href="https://www.facebook.com/profile.php?id=100085534701341"><i class="fa fa-facebook-square"></i></a></div>
               </div>
@@ -53,7 +53,7 @@ include ('includes/header.html');
           <div class="col-12 col-sm-8 col-lg-6">
             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
               <!-- Team Thumb-->
-              <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+              <div class="advisor_thumb"><img src="img_index/huy.jpg" alt="">
                 <!-- Social Info-->
                 <div class="social-info"><a href="https://www.facebook.com/dahiii30"><i class="fa fa-facebook-square"></i></a></div>
               </div>
@@ -91,6 +91,10 @@ background:#eee;
     padding: 0px 0px 0px 0px;
     background-color: #3f43fd;
     overflow: hidden;
+}
+.advisor_thumb img{
+    width: 400px;
+    height: 450px;
 }
 .single_advisor_profile .advisor_thumb::after {
     -webkit-transition-duration: 500ms;

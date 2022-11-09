@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2022 lúc 04:10 PM
+-- Thời gian đã tạo: Th10 09, 2022 lúc 06:11 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -93,24 +93,25 @@ CREATE TABLE `khachhang` (
   `DiaChi` varchar(50) NOT NULL,
   `DienThoai` int(10) NOT NULL,
   `username` varchar(5) NOT NULL,
-  `password` int(10) NOT NULL
+  `password` int(10) NOT NULL,
+  `PhanQuyen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
-INSERT INTO `khachhang` (`MaKH`, `TenKH`, `DiaChi`, `DienThoai`, `username`, `password`) VALUES
-('KH001', 'Lê Trung Dũng', '25 Hà Huy Tập', 914111111, 'KH001', 11111),
-('KH002', 'Lê Trung Hiếu', '25 Hà Huy Tập', 914111112, 'KH002', 11111),
-('KH003', 'Lê Trung Chính', '26 Hà Huy Tập', 914111113, 'KH003', 11111),
-('KH004', 'Nguyễn Gia Bảo', '10 Lê Lợi', 914111114, 'KH004', 11111),
-('KH005', 'Nguyễn Thành Đạt', '12 Quang Trung', 914111115, 'KH005', 11111),
-('KH006', 'Võ Thành Tài', '1 Lê Thánh Tôn', 914111116, 'KH006', 11111),
-('KH007', 'Trần Công Quyền', '20 Bạch Đằng', 914111117, 'KH007', 11111),
-('KH008', 'Nguyễn Huỳnh Thanh Hải', '3 Nguyễn Du', 914111118, 'KH008', 11111),
-('KH009', 'Nguyễn Thị Minh Châu', '7 Đinh Tiên Hoàng', 914111119, 'KH009', 11111),
-('KH010', 'Nguyễn Hoàng Dũng', '3 Lê Lai', 914111110, 'KH010', 11111);
+INSERT INTO `khachhang` (`MaKH`, `TenKH`, `DiaChi`, `DienThoai`, `username`, `password`, `PhanQuyen`) VALUES
+('KH001', 'Lê Trung Dũng', '25 Hà Huy Tập', 914111111, 'KH001', 11111, 0),
+('KH002', 'Lê Trung Hiếu', '25 Hà Huy Tập', 914111112, 'KH002', 11111, 0),
+('KH003', 'Lê Trung Chính', '26 Hà Huy Tập', 914111113, 'KH003', 11111, 0),
+('KH004', 'Nguyễn Gia Bảo', '10 Lê Lợi', 914111114, 'KH004', 11111, 0),
+('KH005', 'Nguyễn Thành Đạt', '12 Quang Trung', 914111115, 'KH005', 11111, 0),
+('KH006', 'Võ Thành Tài', '1 Lê Thánh Tôn', 914111116, 'KH006', 11111, 0),
+('KH007', 'Trần Công Quyền', '20 Bạch Đằng', 914111117, 'KH007', 11111, 0),
+('KH008', 'Nguyễn Huỳnh Thanh Hải', '3 Nguyễn Du', 914111118, 'KH008', 11111, 0),
+('KH009', 'Nguyễn Thị Minh Châu', '7 Đinh Tiên Hoàng', 914111119, 'KH009', 11111, 0),
+('KH010', 'Nguyễn Hoàng Dũng', '3 Lê Lai', 914111110, 'KH010', 11111, 0);
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,7 @@ CREATE TABLE `mathang` (
 --
 
 INSERT INTO `mathang` (`MaMH`, `TenMH`, `MaLH`, `Soluong`, `GiaBan`, `Anh`, `GhiChu`) VALUES
-('MH001', 'Nhẹ nhàng hơn đồng nghĩa với tự do hơn trên đường ', 'LH001', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455808/item/vngoods_67_455808.jpg?width=1600&impolicy=quality_75', 'Áo sơ mi vải dạ mềm mại và thoải mái. Mẫu caro đặc trưng theo phong cách JW Anderson'),
+('MH001', 'Áo Sơ Mi Vải Dạ Kẻ Caro Dài Tay', 'LH001', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455808/item/vngoods_67_455808.jpg?width=1600&impolicy=quality_75', 'Áo sơ mi vải dạ mềm mại và thoải mái. Mẫu caro đặc trưng theo phong cách JW Anderson'),
 ('MH002', 'Áo Sơ Mi Vải Dạ Kẻ Caro Dài Tay', 'LH001', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455807/item/vngoods_16_455807.jpg?width=1600&impolicy=quality_75', 'Áo sơ mi vải dạ mềm mại và thoải mái. Họa tiết caro kết hợp với phong cách JW Anderson đặc trưng'),
 ('MH003', 'Áo Sơ Mi Vải Dạ Kẻ Caro Dáng Rộng Dài Tay', 'LH001', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455659/item/vngoods_30_455659.jpg?width=1600&impolicy=quality_75', 'Vải dạ dày và ấm trong kiểu caro thời trang. Sản phẩm có thể tạo kiểu như một lớp áo bên ngoài'),
 ('MH004', 'Áo Sơ Mi Vải Dạ Kẻ Caro Dài Tay', 'LH001', 50, 686000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/453172/item/vngoods_69_453172.jpg?width=1600&impolicy=quality_75', 'Vải dạ dày, vừa vặn, sản phẩm có thể mặc riêng lẻ hoặc như một lớp áo bên ngoài'),
@@ -173,10 +174,8 @@ INSERT INTO `mathang` (`MaMH`, `TenMH`, `MaLH`, `Soluong`, `GiaBan`, `Anh`, `Ghi
 ('MH013', 'Quần Smart Pants Dài Đến Mắt Cá', 'LH002', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/451818/item/vngoods_07_451818.jpg?width=1600&impolicy=quality_75', 'Chất liệu vải co giãn nhanh khô vượt trội dễ vận động. Quần kiểu dáng đẹp cho bất kỳ dịp nào'),
 ('MH014', 'Quần Smart Pants Dài Đến Mắt Cá', 'LH002', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/451817/item/vngoods_30_451817.jpg?width=1600&impolicy=quality_75', 'Kiểu dáng đẹp vừa vặn. Phong cách linh hoạt cho ngoại hình từ kiểu dáng thông minh đến giản dị'),
 ('MH015', 'Quần Smart Pants Dài Đến Mắt Cá', 'LH002', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450275/item/vngoods_69_450275.jpg?width=1600&impolicy=quality_75', 'Kiểu dáng đẹp phù hợp. Quần dài đến mắt cá chân linh hoạt cho mọi phong cách'),
-('MH016', 'Quần Smart Pants Vải Cotton Dài Đến Mắt Cá Co Giãn', 'LH002', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/448661/item/vngoods_07_448661.jpg?width=1600&impolicy=quality_75', 'Chiếc quần dài đến mắt cá chân, nhẹ, thanh lịch và thoải mái'),
-('MH017', 'Quần Smart Pants Dài Đến Mắt Cá Co Giãn 2 Chiều Họ', 'LH002', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/448486/item/vngoods_05_448486.jpg?width=1600&impolicy=quality_75', 'Dễ mặc, dáng suông dài đến mắt cá chân nhẹ nhàng và thanh lịch'),
+('MH016', 'Quần Smart Pants Vải Cotton Dài Đến Mắt Cá', 'LH002', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/448661/item/vngoods_07_448661.jpg?width=1600&impolicy=quality_75', 'Chiếc quần dài đến mắt cá chân, nhẹ, thanh lịch và thoải mái'),
 ('MH018', 'Quần Smart Pants Vải Cotton Dài Đến Mắt Cá', 'LH002', 50, 588000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/442533/item/goods_69_442533.jpg?width=1600&impolicy=quality_75', 'Sử dụng vải cotton trong mẫu thiết kế đã được cập nhật. Chiếc quần đa năng phù hợp với bất kỳ dịp nào'),
-('MH019', 'Quần Smart Pant Cotton Dài Đến Mắt Cá Co Giãn Hai', 'LH002', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/436878/item/goods_33_436878.jpg?width=1600&impolicy=quality_75', 'Vải cotton tự nhiên dễ phối đồ. Vải tuy nhìn có vẻ sắc nét, nhưng lại mang đến cảm giác thoải mái không gây khó chịu'),
 ('MH020', 'Quần Dài Đến Mắt Cá Co Giãn 2 Chiều', 'LH002', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/434844/item/goods_06_434844.jpg?width=1600&impolicy=quality_75', 'Chất liệu vải và thiết kế đẹp mắt giúp sản phẩm có kiểu dáng thanh lịch. Thời trang không cầu kỳ và thoải mái trong bất kỳ hoàn cảnh nào'),
 ('MH021', 'Áo Thun Cổ Tròn Ngắn Tay', 'LH003', 50, 244000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/431599/item/goods_69_431599.jpg?width=1600&impolicy=quality_75', 'Sản phẩm với độ hoàn thiện cao, đơn giản nhưng có thiết kế và độ bền vượt trội'),
 ('MH022', 'AIRism Cotton Áo Thun Cổ Tròn Dáng Rộng', 'LH003', 50, 391000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/425974001/item/goods_37_425974001.jpg?width=1600&impolicy=quality_75', 'The look of cotton with \\\"AIRism\\\" performance. Narrower neckline for a clean, neat style'),
@@ -193,9 +192,7 @@ INSERT INTO `mathang` (`MaMH`, `TenMH`, `MaLH`, `Soluong`, `GiaBan`, `Anh`, `Ghi
 ('MH033', 'Áo Len Lông Cừu Cao Cấp Cổ Tròn Dài Tay', 'LH004', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450541/item/vngoods_62_450541.jpg?width=1600&impolicy=quality_75', 'Chất liệu vải len cao cấp 100% mềm mịn và ấm áp. Thiết kế đan gân quanh vai tạo thêm điểm nhấn'),
 ('MH034', 'Áo Len Vải Crape Cổ Tròn', 'LH004', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450552/item/vngoods_29_450552.jpg?width=1600&impolicy=quality_75', 'Một chiếc áo len với chất liệu vải cao cấp, kiểu dáng đặc biệt. Đường cắt thoải mái'),
 ('MH035', 'Áo Len Sợi Souffle Dệt 3D Dài Tay', 'LH004', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/453221/item/vngoods_06_453221.jpg?width=1600&impolicy=quality_75', 'Vải dệt kim 3D co giãn dạng sợi soufflé mềm mại, không ngứa'),
-('MH036', 'Áo Len Vải Sợi Souffle Đan Họa Tiết Cổ Tròn Dài Ta', 'LH004', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/451614/item/vngoods_32_451614.jpg?width=1600&impolicy=quality_75', 'Không bị đổ lông và không gây ngứa. Họa tiết Fair Isle vui vẻ'),
 ('MH037', 'Áo Len Sợi Souffle Dệt 3D Dài Tay', 'LH004', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450548/item/vngoods_01_450548.jpg?width=1600&impolicy=quality_75', 'Dựa trên phản hồi của khách hàng, chúng tôi đã cập nhật cổ áo ít co giãn hơn và dễ phối đồ hơn'),
-('MH038', 'Áo Khoác Giả Lông Cừu Loại Dày Kéo Khóa Dài Tay', 'LH004', 50, 686000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450198/item/vngoods_59_450198.jpg?width=1600&impolicy=quality_75', 'Dựa trên phản hồi của khách hàng, chúng tôi đã cập nhật phần thân áo sang loại vải polyester tái chế 100% mềm mại, ấm hơn'),
 ('MH039', 'Áo Khoác Giả Lông Cừu Kéo Khóa Dài Tay', 'LH004', 50, 686000, 'https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450195/item/vngoods_19_450195.jpg?width=1600&impolicy=quality_75', 'Dựa trên phản hồi của khách hàng, chúng tôi đã cập nhật phần thân áo sang loại vải polyester tái chế 100% mềm mại, ấm hơn'),
 ('MH040', 'Áo Cardigan Extra Fine Merino Cổ V Dài Tay', 'LH004', 50, 980000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/438786/item/goods_03_438786.jpg?width=1600&impolicy=quality_75', '100 ％ len Merino cao cấp. Kiểu đan tinh xảo với các chi tiết tỉ mỉ'),
 ('MH041', 'Áo Khoác Kiểu Sơ Mi Dáng Rộng', 'LH005', 5, 1471000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/449618001/sub/goods_449618001_sub14.jpg?width=1600&impolicy=quality_75', 'Đường cắt thoải mái cho một phong cách giản dị. Các túi rất linh hoạt và thiết thực.'),
@@ -218,7 +215,7 @@ INSERT INTO `mathang` (`MaMH`, `TenMH`, `MaLH`, `Soluong`, `GiaBan`, `Anh`, `Ghi
 ('MH058', 'Quần Short Siêu Nhẹ', 'LH006', 50, 784000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451086/item/goods_00_451086.jpg?width=1600&impolicy=quality_75', 'Dáng ngắn theo kiểu quần Kando tiện dụng của chúng tôi. Vải chất lượng cao tuyệt vời cho hoạt động chơi gôn và các môn thể thao khác.'),
 ('MH059', 'Quần Easy Short Co Giãn', 'LH006', 50, 391000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/447907/sub/goods_447907_sub13.jpg?width=1600&impolicy=quality_75', 'Co giãn để dễ dàng di chuyển. Quần short mang đến cảm giác tươi mới, bạn có thể mặc ở bất cứ đâu.'),
 ('MH060', 'AIRism Cotton Quần Easy Shorts', 'LH006', 50, 391000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451332/item/goods_08_451332.jpg?width=1600&impolicy=quality_75', 'Luôn mới mẻ với AIRism có vẻ ngoài giản dị bằng vải cotton. Thắt lưng co giãn thoải mái.'),
-('MH061', 'Áo Đấu Sân Khách Authentic Đội Tuyển Argentina 22', 'LH007', 100, 3000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/66630004e41a47a0b822aef90115289e_9366/Ao_DJau_San_Khach_Authentic_DJoi_Tuyen_Argentina_22_Mau_xanh_da_troi_HB9657_HM30.jpg', 'Kiểu dáng mới cho trang phục bóng đá. Thiết kế hiệu năng và giống hệt bộ trang phục đồng hành cùng các cầu thủ trong các trận đấu chính thức.'),
+('MH061', 'Áo Đấu Sân Khách Argentina 2022', 'LH007', 100, 3000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/66630004e41a47a0b822aef90115289e_9366/Ao_DJau_San_Khach_Authentic_DJoi_Tuyen_Argentina_22_Mau_xanh_da_troi_HB9657_HM30.jpg', 'Kiểu dáng mới cho trang phục bóng đá. Thiết kế hiệu năng và giống hệt bộ trang phục đồng hành cùng các cầu thủ trong các trận đấu chính thức.'),
 ('MH062', 'Áo Đấu Sân Nhà Manchester United 22-23', 'LH007', 100, 2150000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/693f5fb49f4c45078f9aae6f00d4c19e_9366/Ao_DJau_San_Nha_Manchester_United_22-23_DJo_H13881_01_laydown.jpg', 'Khi dựng lên cũng như khi bẻ xuống, chiếc cổ áo polo khiêm tốn luôn đóng vai trò nổi bật trong rất nhiều những khoảnh khắc huy hoàng nhất của Manchester United. Tái xuất trên chiếc áo đấu bóng đá adidas này, thiết kế cổ áo ấy kết hợp cùng huy hiệu hình ch'),
 ('MH063', 'Áo Đấu Sân Nhà Juventus 22-23', 'LH007', 100, 2150000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3075faec56ed43dca4e1ae8a009dc0b4_9366/Ao_DJau_San_Nha_Juventus_22-23_trang_H38907_01_laydown.jpg', 'Trong suốt lịch sử ngập tràn cúp vô địch của mình, các ngôi sao đã trở thành một dấu ấn đặc trưng của Juventus không kém gì các đường sọc. Chiếc áo đấu bóng đá adidas này kết hợp hai yếu tố ấy, tạo nên các đường sọc đen huyền thoại của CLB từ các biểu tượ'),
 ('MH064', 'Áo Tank Top Harden Vol.6', 'LH007', 100, 850000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2ee81532acef44b2a024ae60017f4fbe_9366/Ao_Tank_Top_Harden_Vol._6_Ch._3_trang_HG4430_01_laydown.jpg', 'James Harden thường lui tới những địa điểm lý tưởng để thư giãn sau một mùa giải cam go kéo dài. Họa tiết graphic hình la bàn trên chiếc áo tank top bóng rổ adidas này tượng trưng cho sở trường của anh trong việc khám phá các hòn đảo hay resort nghỉ dưỡng'),
@@ -231,13 +228,11 @@ INSERT INTO `mathang` (`MaMH`, `TenMH`, `MaLH`, `Soluong`, `GiaBan`, `Anh`, `Ghi
 ('MH071', 'Áo Hoodies Ba Lá Classic', 'LH008', 50, 2000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/217268f179434427ace7ae920135542c_9366/Ao_Hoodie_Ba_La_Classics_Adicolor_mau_xanh_la_HK7270_01_laydown.jpg', 'Kể từ khi logo Ba Lá ra mắt vào thập niên 70, biểu tượng ấy đã xuất hiện cùng các vận động viên chuyên nghiệp, các ngôi sao hip hop, các nghệ sĩ và các nhà kiến tạo trên khắp thế giới. Vậy nên khi diện chiếc áo hoodie adidas này là bạn đang sánh vai cùng '),
 ('MH072', 'Áo Hoodies Nỉ Giant Logo Essentials', 'LH008', 80, 1500000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d03c1fde41964b26802aae4a012e7a9b_9366/Ao_Hoodie_Ni_Giant_Logo_Essentials_DJen_HL6925_01_laydown.jpg', 'Dành cho những ai thích cảm giác thật mềm mại và thật nhiều logo. Chiếc áo hoodie nỉ adidas này phù hợp làm lớp áo khoác ngoài trước và sau buổi tập, cũng như những ngày nhẹ nhàng thảnh thơi.\r\n'),
 ('MH073', 'Áo Hoodies Khóa Kéo 3 Sọc Future Icons', 'LH008', 60, 1800000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2248cb3cc10e405a8f52aea400dc8dd3_9366/Ao_Hoodie_Khoa_Keo_3_Soc_Future_Icons_Be_HK4570_01_laydown.jpg', 'Nghỉ ngơi, tập gym, ăn trưa, đi làm, nghỉ ngơi. Thêm phần phong cách cho lịch trình của bạn bằng cách quấn 3 Sọc quanh vai. Chất vải dệt kim đôi mang lại cảm giác dày dặn và đứng dáng cho chiếc áo hoodie này, hoàn hảo để làm lớp áo khoác ngoài.'),
-('MH074', 'Áo Khoác Dệt Thoi Biểu Tượng Chính Thức FIFA World', 'LH008', 80, 2000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ae7b45e7936a4a448e3eaebd00bc4a92_9366/Ao_Khoac_Det_Thoi_Bieu_Tuong_Chinh_Thuc_FIFA_World_Cup_2022tm_DJen_HC3450_01_laydown.jpg', 'FIFA World Cup 2022™ là nơi quy tụ tất cả những ngôi sao sáng giá nhất của thế giới. Hãy thể hiện tình yêu với giải đấu lớn nhất trong làng túc cầu bằng chiếc áo khoác adidas này. Kiểu dáng ôm sát vừa khít trên cơ thể, giúp bạn luôn ấm áp trong khi thưởng'),
+('MH074', 'Áo Khoác Dệt Thoi FIFA World', 'LH008', 80, 2000000, 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/444872/item/goods_69_444872.jpg?width=1600&impolicy=quality_75', 'FIFA World Cup 2022™ là nơi quy tụ tất cả những ngôi sao sáng giá nhất của thế giới. Hãy thể hiện tình yêu với giải đấu lớn nhất trong làng túc cầu bằng chiếc áo khoác adidas này. Kiểu dáng ôm sát vừa khít trên cơ thể, giúp bạn luôn ấm áp trong khi thưởng'),
 ('MH075', 'Áo Gió Reclaim Adidas RIFTA', 'LH008', 50, 3000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/04612b57e4eb4116a0ecae88014448fa_9366/Ao_Gio_Reclaim_adidas_RIFTA_Xam_HK2774_01_laydown.jpg', 'Thành phố là sân chơi của bạn. Nơi bạn sáng tạo và khám phá. Thế nên, hãy khoác ngay chiếc áo gió adidas này vào và tìm thấy nhịp bước riêng trên những con phố tấp nập người và xe. Chất vải trơn láng cho vẻ ngoài mượt mà, còn lớp lưới bên trong cho cảm gi'),
 ('MH076', 'Áo Khoác Chần Lông Vũ Khóa Kéo Dọc Thân', 'LH008', 50, 5100000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/0f872e7c781646e8b9f7acd20127813a_9366/Ao_Khoac_Chan_Long_Vu_Khoa_Keo_Doc_Than_Xam_GT3335_01_laydown.jpg', 'Giữ ấm suốt những vòng golf lạnh căm để giảm dần số gậy trên thẻ điểm. Chiến áo khoác golf adidas này có chần lông vũ giữ ấm cho bạn từ cú tee đầu tiên tới cú putt cuối cùng. Thiết kế khóa kéo dọc thân và cổ đứng tăng cường khả năng che chắn. Bề mặt chống'),
 ('MH077', 'Áo Khoác Nỉ Phản Quang', 'LH008', 100, 1500000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d1bad10e2bd74db7aa1aae8c00d96e1b_9366/Ao_Hoodie_Ni_Phan_Quang_Essentials_DJen_HL6913_01_laydown.jpg', 'Chiếc áo hoodie adidas linh hoạt thích ứng này được thiết kế dành cho các hoạt động thể thao hàng ngày. Chất vải nỉ mềm mại kết hợp cùng lớp phủ dệt thoi chính là lựa chọn lý tưởng cho những hành trình vào sáng sớm se lạnh. Chiếc áo lưu giữ hơi ấm khi bạn'),
-('MH078', 'Áo Khoác Ngoài PRSVE', 'LH008', 50, 3000000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9f8e9ee6392946daa6afae30000eb056_9366/Ao_Khoac_Ngoai_PRSVE_Be_HM2708_01_laydown.jpg', 'Chiếc áo khoác ấm áp mà không hề nặng nề. Chiếc áo khoác adidas này là lựa chọn tuyệt vời cho những buổi hiking, đạp xe và hòa mình vào thiên nhiên. Dáng áo suông rộng cho phép bạn kết hợp nhiều layer bên trong. Mũ áo có dây rút kết hợp cùng gấu áo có chu'),
-('MH079', 'Áo Hoodies Reveal ESS ', 'LH008', 50, 2400000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b28d7437735a4c5cbc3dae8301256b85_9366/Ao_Hoodie_Reveal_ESS_Xam_HK2725_01_laydown.jpg', 'Chiếc áo hoodie adidas này có lý do để bạn luôn muốn mặc đi mặc lại. Giặt áo xong bạn sẽ treo vào tủ hay chỉ muốn mặc luôn? (Có lẽ là lựa chọn thứ hai) Bởi chất vải thun da cá thoải mái vô cùng này thực sự sẽ giúp bạn tận hưởng mọi hành trình trong ngày —'),
-('MH080', 'Áo Khoác Gió Chạy Trail Họa Tiết Terrex', 'LH008', 50, 2500000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/157859713254422cbf30ae140119fdb3_9366/Ao_Khoac_Gio_Chay_Trail_Hoa_Tiet_Terrex_trang_HA7537_01_laydown.jpg', 'Nhẹ nhàng hơn đồng nghĩa với tự do hơn trên đường địa hình. Chính vì vậy chúng tôi đã thiết kế chiếc áo khoác chạy trail adidas này làm lớp áo ngoài siêu nhẹ che chắn cho bạn khi trời nổi gió và có thể gấp gọn lại khi trời nóng lên. Công nghệ WIND.RDY chắ');
+('MH080', 'Áo Khoác Gió Chạy Trail Họa Tiết Terrex', 'LH008', 30, 2500000, 'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/157859713254422cbf30ae140119fdb3_9366/Ao_Khoac_Gio_Chay_Trail_Hoa_Tiet_Terrex_trang_HA7537_01_laydown.jpg', 'Nhẹ nhàng hơn đồng nghĩa với tự do hơn trên đường địa hình. Chính vì vậy chúng tôi đã thiết kế chiếc áo khoác chạy trail adidas này làm lớp áo ngoài siêu nhẹ che chắn cho bạn khi trời nổi gió và có thể gấp gọn lại khi trời nóng lên. Công nghệ WIND.RDY chắ');
 
 -- --------------------------------------------------------
 
@@ -253,19 +248,20 @@ CREATE TABLE `nhanvien` (
   `DienThoai` int(10) NOT NULL,
   `NgaySinh` date NOT NULL,
   `username` varchar(5) NOT NULL,
-  `password` int(10) NOT NULL
+  `password` int(10) NOT NULL,
+  `PhanQuyen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `Gioitinh`, `DiaChi`, `DienThoai`, `NgaySinh`, `username`, `password`) VALUES
-('NV001', 'Hoàng Quốc Nam', 1, '26 Lê Hồng Phong', 911395126, '2001-01-25', 'NV001', 11111),
-('NV002', 'Võ Gia Huy', 1, '30 Hà Huy Tập', 912098502, '2001-01-26', 'NV002', 11111),
-('NV003', 'Phạm Ngọc Ẩn', 1, '27 Hà Huy Tập', 914341559, '2001-02-28', 'NV003', 11111),
-('NV004', 'Nguyễn Hoàng Minh Phúc', 1, '1 Đặng Tất', 916160396, '2001-05-15', 'NV004', 11111),
-('NV005', 'Nguyễn Đình Khải', 0, '15 Lê Lợi', 945478421, '2001-11-11', 'NV005', 11111);
+INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `Gioitinh`, `DiaChi`, `DienThoai`, `NgaySinh`, `username`, `password`, `PhanQuyen`) VALUES
+('NV001', 'Hoàng Quốc Nam', 1, '26 Lê Hồng Phong', 911395126, '2001-01-25', 'NV001', 11111, 1),
+('NV002', 'Võ Gia Huy', 1, '30 Hà Huy Tập', 912098502, '2001-01-26', 'NV002', 11111, 1),
+('NV003', 'Phạm Ngọc Ẩn', 1, '27 Hà Huy Tập', 914341559, '2001-02-28', 'NV003', 11111, 0),
+('NV004', 'Nguyễn Hoàng Minh Phúc', 1, '1 Đặng Tất', 916160396, '2001-05-15', 'NV004', 11111, 0),
+('NV005', 'Nguyễn Đình Khải', 0, '15 Lê Lợi', 945478421, '2001-11-11', 'NV005', 11111, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ

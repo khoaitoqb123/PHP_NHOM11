@@ -62,23 +62,70 @@ class ql_quanaonam extends SQL{
         return $this->queryDB($str_query);
     }
     public function insertLoaiHang($MaLH="",$TenLH=""){
-        $str_query = "INSERT INTO `loaithang`(`MaLH`,`TenLH`) VALUES ('$MaLH','$TenLH')";
+        $str_query = "INSERT INTO `loaihang`(`MaLH`,`TenLH`) VALUES ('$MaLH','$TenLH')";
         return $this->queryDB($str_query);
     }
-    public function insertNhanVien($MaNV="",$TenNV="",$Gioitinh="",$Diachi="",$Dienthoai="",$username="",$password=""){
-        $str_query = "INSERT INTO `nhanvien`(`MaNV`,`TenNV`,`Gioitinh`,`Diachi`,`Dienthoai`,`username`,`password`) VALUES ('$MaNV','$TenNV','$Gioitinh','$Diachi','$Dienthoai','$username','$password')";
+    public function updateLoaiHang($MaLH="",$TenLH="")
+    {
+        $str_query = "UPDATE loaihang SET `TenMH`='$TenLH'WHERE `MaLH`='$MaLH'";
         return $this->queryDB($str_query);
     }
-    public function insertKhachHang($MaKH="",$TenKH="",$Diachi="",$Dienthoai="",$username="",$password=""){
-        $str_query = "INSERT INTO `khachhang`(`MaKH`,`TenKH`,`Diachi`,`Dienthoai`,`username`,`password`) VALUES ('$MaKH','$TenKH','$Diachi','$Dienthoai','$username','$password')";
+    public function deleteLoaiHang($MaLH=""){
+        $str_query = "DELETE FROM `loaihang` WHERE `MaLH` = '$MaLH'";
         return $this->queryDB($str_query);
     }
-    public function insertHoaDon($MaHD="",$MaNV="",$NgayBan="",$MaKH="",$TongTien=""){
-        $str_query = "INSERT INTO `hdban`(`MaHD`,`MaNV`,`NgayBan`,`MaKH`,`TongTien`) VALUES ('$MaHD','$MaNV','$NgayBan','$$MaKH','$TongTien')";
+
+    public function insertNhanVien($MaNV="",$TenNV="",$Gioitinh="",$DiaChi="",$Dienthoai="",$username="",$password=""){
+        $str_query = "INSERT INTO `nhanvien`(`MaNV`,`TenNV`,`Gioitinh`,`DiaChi`,`DienThoai`,`username`,`password`) VALUES ('$MaNV','$TenNV','$Gioitinh','$DiaChi','$Dienthoai','$username','$password')";
+        return $this->queryDB($str_query);
+    }
+    public function updateNhanVien($MaNV="",$TenNV="",$Gioitinh="",$DiaChi="",$DienThoai="",$username="",$password="",$PhanQuyen="")
+    {
+        $str_query = "UPDATE nhanvien SET `TenNV`='$TenNV',`Gioitinh`='$Gioitinh',`DiaChi`='$DiaChi',`Dienthoai`='$DienThoai',`username`='$username',`password`='$password',`PhanQuyen`='$PhanQuyen' WHERE `MaNV`='$MaNV'";
+        return $this->queryDB($str_query);
+    }
+    public function deleteNhanVien($MaNV=""){
+        $str_query = "DELETE FROM `nhanvien` WHERE `MaNV` = '$MaNV'";
+        return $this->queryDB($str_query);
+    }
+
+    public function insertKhachHang($MaKH="",$TenKH="",$DiaChi="",$DienThoai="",$username="",$password="",$PhanQuyen=""){
+        $str_query = "INSERT INTO `khachhang`(`MaKH`,`TenKH`,`DiaChi`,`DienThoai`,`username`,'password') VALUES ('$MaKH','$TenKH','$DiaChi','$DienThoai','$username','$password','$PhanQuyen')";
+        return $this->queryDB($str_query);
+    }
+    public function updateKhachHang($MaKH="",$TenKH="",$Gioitinh="",$DiaChi="",$DienThoai="",$username="",$password="",$PhanQuyen="")
+    {
+        $str_query = "UPDATE khachhang SET `TenKH`='$TenKH',`Gioitinh`=`$Gioitinh`,`DiaChi`='$DiaChi',`DienThoai`='$DienThoai',`username`='$username',`password`='$password',`PhanQuyen` = '$PhanQuyen' WHERE `MaKH`='$MaKH'";
+        return $this->queryDB($str_query);
+    }
+    public function deleteKhachHang($MaKH=""){
+        $str_query = "DELETE FROM `khachhang` WHERE `MaKH` = '$MaKH'";
+        return $this->queryDB($str_query);
+    }
+    public function insertHoaDon($MaHD="",$MaNV="",$NgayBan="",$MaKH=""){
+        $str_query = "INSERT INTO `hdban`(`MaHD`,`MaNV`,`NgayBan`,`MaKH`) VALUES ('$MaHD','$MaNV','$NgayBan','$$MaKH')";
+        return $this->queryDB($str_query);
+    }
+    public function updateHoaDon($MaHD="",$MaNV="",$NgayBan="",$MaKH="")
+    {
+    $str_query = "UPDATE hdban SET `MaNV`='$MaNV', `NgayBan`='$NgayBan', `MaKH`='$MaKH' WHERE `MaHD`='$MaHD'";
+    return $this->queryDB($str_query);
+    }
+    public function deleteHoaDon($MaHD=""){
+        $str_query = "DELETE FROM `hdban` WHERE `MaHD` = '$MaHD'";
         return $this->queryDB($str_query);
     }
     public function insertCTHoaDon($MaHD="",$MaMH="",$SoLuong="",$DonGia="",$ThanhTien=""){
         $str_query = "INSERT INTO `chitiethd`(`MaHD`,`MaMH`,`SoLuong`,`DonGia`,`ThanhTien`) VALUES ('$MaHD','$MaMH','$SoLuong','$$DonGia','$ThanhTien')";
+        return $this->queryDB($str_query);
+    }
+    public function updateCTHoaDon($MaHD="",$MaMH="",$SoLuong="",$DonGia="",$ThanhTien)
+    {
+    $str_query = "UPDATE chitiethd SET `SoLuong`='$SoLuong', `DonGia`='$DonGia', `ThanhTien`='$ThanhTien' WHERE `MaHD`='$MaHD' AND `MaMH` = '$MaMH'";
+    return $this->queryDB($str_query);
+    }
+    public function deleteCTHoaDon($MaHD="",$MaMH=""){
+        $str_query = "DELETE FROM `chitiethd` WHERE `MaHD` = '$MaHD' AND `MaMH`='$MaMH'";
         return $this->queryDB($str_query);
     }
     public function layMaNhanVien()
@@ -87,7 +134,7 @@ class ql_quanaonam extends SQL{
         $last =  implode(mysqli_fetch_array($lastRow));
         $maMax = substr($last, 2, 3);
         $maUS = (int)$maMax + 1;
-        return "Usser0" . $maUS;
+        return "NV0" . $maUS;
     }
     public function layMaKhachHang()
     {
@@ -95,45 +142,8 @@ class ql_quanaonam extends SQL{
         $last =  implode(mysqli_fetch_array($lastRow));
         $maMax = substr($last, 2, 3);
         $maUS = (int)$maMax + 1;
-        return "Usser0" . $maUS;
-    }
-    public function dangNhapNhanVien($username, $password)
-    {
-        if (!$username || !$password) {
-        return "Please enter full sign in name and password.";
-        }
-    
-        $query = $this->queryDB("SELECT username, password FROM nhanvien WHERE username='$username'");
-        if (mysqli_num_rows($query) == 0) {
-        return "Sign in name not exist. Please check again.";
-        }
-    
-        $row = mysqli_fetch_array($query);
-        if ($password != $row['MAT_KHAU']) {
-        return "Password incorrect. Please re-enter.";
-        }
-
-        return $row;
-    }
-    public function dangNhapKhachHang($username, $password)
-    {
-        if (!$username || !$password) {
-        return "Please enter full sign in name and password.";
-        }
-    
-        $query = $this->queryDB("SELECT username, password FROM khachhang WHERE username='$username'");
-        if (mysqli_num_rows($query) == 0) {
-        return "Sign in name not exist. Please check again.";
-        }
-    
-        $row = mysqli_fetch_array($query);
-        if ($password != $row['password']) {
-        return "Password incorrect. Please re-enter.";
-        }
-
-        return $row;
+        return "KH0" . $maUS;
     }
 }
-
 $ql_quanaonam = new ql_quanaonam("localhost","root","","ql_quanaonam");
 ?>
