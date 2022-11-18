@@ -46,20 +46,6 @@
                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12">
-                        <div class="top_right text-right">
-                            <ul>
-                               <li class="top_links"><a href="#">My Account <i class="ion-chevron-down"></i></a>
-                                    <ul class="dropdown_links">
-                                        <li><a href="wishlist.html">My Wish List </a></li>
-                                        <li><a href="my-account.html">My Account </a></li>
-                                        <li><a href="#">Sign In</a></li>
-                                        <li><a href="compare.html">Compare Products  </a></li>
-                                    </ul>
-                                </li> 
-                            </ul>
-                        </div>   
-                    </div>
                 </div>
             </div>
         </div>
@@ -137,27 +123,49 @@
                         $username = ($_POST['Username']);
                         $password = ($_POST['Password']);
 
+                        if(!$username || !$password){
+                            echo '<script type = "text/javascript">';
+                            echo 'alert("Invalid Username or Password");';
+                            echo 'window.location.href = "login.php"';
+                            echo '</script>';
+                        }
+                        else{
                         $result = $ql_quanaonam->searchDB("*","nhanvien","username","$username");
                         $row = mysqli_fetch_array($result);
                         $result1 = $ql_quanaonam->searchDB("*","khachhang","username","$username");
                         $row1 = mysqli_fetch_array($result1);
                         if(is_array($row)){
-                            $_SESSION["Username"] = $row['username'];
-                            $_SESSION["Password"] = $row['password'];
-                            $_SESSION["PhanQuyen"] = $row['PhanQuyen'];
-                            header("Location:index_web.php");
+                            if($password == $row['password']){
+                                $_SESSION["Username"] = $row['username'];
+                                $_SESSION["PhanQuyen"] = $row['PhanQuyen'];
+                                header("Location:index_web.php");
+                            }
+                            else{
+                                echo '<script type = "text/javascript">';
+                                echo 'alert("Invalid Password");';
+                                echo 'window.location.href = "login.php"';
+                                echo '</script>';
+                            }
                         }
                         elseif(is_array($row1)){
-                            $_SESSION["Username"] = $row1['username'];
-                            $_SESSION["Password"] = $row1['password'];
-                            $_SESSION["PhanQuyen"] = $row1['PhanQuyen'];
-                            header("Location:index_web.php");
+                            if($password == $row1['password']){
+                                $_SESSION["Username"] = $row1['username'];
+                                $_SESSION["PhanQuyen"] = $row1['PhanQuyen'];
+                                header("Location:index_web.php");
+                            }
+                            else{
+                                echo '<script type = "text/javascript">';
+                                echo 'alert("Invalid Password");';
+                                echo 'window.location.href = "login.php"';
+                                echo '</script>';
+                            }
                         }
                         else{
                             echo '<script type = "text/javascript">';
                             echo 'alert("Invalid Username or Password");';
                             echo 'window.location.href = "login.php"';
                             echo '</script>';
+                        }
                         }
                     }
                 ?>
@@ -166,22 +174,67 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="account_form register">
                         <h2>Register</h2>
-                        <form action="#">
+                        <form action="login.php" method="POST">
                             <p>   
                                 <label>Username<span>*</span></label>
-                                <input type="text">
-                             </p>
-                             <p>   
+                                <input name="Username" type="text">
+                            </p>
+                            <p>   
                                 <label>Passwords <span>*</span></label>
-                                <input type="password">
-                             </p>
+                                <input name="Password" type="password">
+                            </p>
+                            <p>   
+                                <label>Confirm Passwords <span>*</span></label>
+                                <input name="xacnhanpassword" type="password">
+                            </p>
+                            <p>   
+                                <label>Name<span>*</span></label>
+                                <input name="Name" type="text">
+                            </p>
+                            <p>   
+                                <label>Address<span>*</span></label>
+                                <input name="Address" type="text">
+                            </p>
+                            <p>   
+                                <label>Phone<span>*</span></label>
+                                <input name="Phone" type="text">
+                            </p>
                             <div class="login_submit">
-                                <button type="submit">Register</button>
+                                <button name="register" type="submit">Register</button>
                             </div>
                         </form>
                     </div>    
                 </div>
                 <!--register area end-->
+
+                <?php
+                    if (isset($_POST['register'])) {
+                        if (!isset($_POST['Name'])) {
+                          die('');
+                        }
+                      
+                        $username = ($_POST['Username']);
+                        $password = ($_POST['Password']);
+                        $xacnhanpassword = ($_POST['xacnhanpassword']);
+                        $name = ($_POST['Name']);
+                        $diaChi = ($_POST['Address']);
+                        $Phone = ($_POST['Phone']);
+                        $phanquyen = 0;
+                      
+                        $result = $ql_quanaonam->dangkyKhachHang($name, $diaChi, $Phone, $username, $password, $xacnhanpassword, $phanquyen);
+                        if ($result == "Success") {
+                          $_SESSION['Username'] = $username;
+                          $_SESSION['PhanQuyen'] = $phanquyen;
+                          header("Location:index_web.php");
+                        } else {
+                            echo '<script type = "text/javascript">';
+                            echo 'alert("'.$result.'");';
+                            echo 'window.location.href = "login.php"';
+                            echo '</script>';
+                        }
+                      }
+                ?>
+
             </div>
         </div>    
     </div>
@@ -249,16 +302,7 @@
                <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright_area">
-                            <p> &copy; 2021 <strong> </strong> Mede with ❤️ by <a href="https://hasthemes.com/" target="_blank"><strong>HasThemes</strong></a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer_custom_links">
-                            <ul>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.html">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                            </ul>
+                            <p> &copy; 2022 <strong> </strong> Designed by <strong>VO GIA HUY</strong> & <strong>HOANG QUOC NAM</strong></p>
                         </div>
                     </div>
                 </div>

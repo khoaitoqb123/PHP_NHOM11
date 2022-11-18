@@ -102,7 +102,7 @@
                                 <nav>  
                                     <ul>
                                         <li class="active"><a href="index_web.php">Home</a></li>
-                                        <li><a href="shop_category.php">Shop</a></li>
+                                        <li><a href="shop/shop_category.php">Shop</a></li>
                                     </ul>   
                                 </nav> 
                             </div>
@@ -124,7 +124,7 @@
                         <div class="slider_content content_one">
                             <img src="assets/img/slider/content3.png" alt="">
                             <p>the wooboom clothing summer collection is back at half price</p>
-                            <a href="shop.php">Discover Now</a>
+                            <a href="#">Discover Now</a>
                         </div>    
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                         <div class="slider_content content_two">
                             <img src="assets/img/slider/content4.png" alt="">
                             <p>the wooboom clothing summer collection is back at half price</p>
-                            <a href="shop.php">Discover Now</a>
+                            <a href="#">Discover Now</a>
                         </div>    
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         <div class="slider_content content_three">
                             <img src="assets/img/slider/content5.png" alt="">
                             <p>the wooboom clothing summer collection is back at half price</p>
-                            <a href="shop.php">Discover Now</a>
+                            <a href="#">Discover Now</a>
                         </div>    
                     </div>
                 </div>
@@ -159,36 +159,6 @@
     </div>
     <!--slider area end-->
 
-    <!--banner area start-->
-    <div class="banner_section banner_section_three">
-        <div class="container-fluid">
-            <div class="row ">
-               <div class="col-lg-4 col-md-6">
-                    <div class="banner_area">
-                        <div class="banner_thumb">
-                            <a href="shop.php"><img src="assets/img/bg/banner8.jpg" alt="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="banner_area">
-                        <div class="banner_thumb">
-                            <a href="shop.php"><img src="assets/img/bg/banner9.jpg" alt="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="banner_area bottom">
-                        <div class="banner_thumb">
-                            <a href="shop.php"><img src="assets/img/bg/banner10.jpg" alt="#"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--banner area end-->
-    
     <!--product section area start-->
     <section class="product_section womens_product bottom">
         <div class="container">
@@ -203,46 +173,46 @@
             <div class="product_area"> 
                  <div class="row">
                     <?php
-                                        $str_card_sp = "";
-                                        $result = $ql_quanaonam->searchDB2("*", "", "");
-                                        $countRows = mysqli_num_rows($result);
-                                        
-                                        for ($i = 0; $i < $countRows; $i++) {
-                                        $j = 1;
-                                        $str_card_sp .= "
-                                            <div class='product_carousel product_three_column4 owl-carousel'>
-                                        ";
-                                        while (true) {
-                                            if ($rows = mysqli_fetch_array($result)) {
-                                            $str_card_sp .= "
-                                            <div class='col-lg-3'>                              
-                                                <div class='single_product'>
-                                                    <div class='product_thumb'>
-                                                            <a class = 'primary_image' href='product_detail.php'><img src='$rows[5]' alt=''></a>
-                                                        <div class='quick_button'>
-                                                            <a href='#' title='quick_view'>Xem sản phẩm</a>
-                                                        </div>
-                                                        <div class='product_sale'>
-                                                            <span>-7%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class='product_content' >
-                                                        <p><a href='product-details.php'>  $rows[1]  </a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ";
-                                            }
+                        $str_card_sp = "";
+                        $result = $ql_quanaonam->searchDB2("*", "", "");
+                        $countRows = mysqli_num_rows($result);
+                        
+                        for ($i = 0; $i < $countRows; $i++) {
+                        $j = 1;
+                        $str_card_sp .= "
+                            <div class='product_carousel product_three_column4 owl-carousel'>
+                        ";
+                        while (true) {
+                            if ($rows = mysqli_fetch_array($result)) {
+                            $str_card_sp .= "
+                            <div class='col-lg-3'>                              
+                                <div class='single_product'>
+                                    <div class='product_thumb'>
+                                            <a class = 'primary_image' href='#'><img src='$rows[5]' alt=''></a>
+                                        <div class='quick_button'>
+                                            <a href='#' title='quick_view'>Xem sản phẩm</a>
+                                        </div>
+                                        <div class='product_sale'>
+                                            <span>-7%</span>
+                                        </div>
+                                    </div>
+                                    <div class='product_content' >
+                                        <p><a href='#'>  $rows[1]  </a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            ";
+                            }
 
-                                            if ($j == 80)
-                                            break;
-                                            $j++;
-                                        }
-                                        $str_card_sp .= "</div>";
-                                        }
-                                           
-                                        echo $str_card_sp;
-                                        ?>
+                            if ($j == 80)
+                            break;
+                            $j++;
+                        }
+                        $str_card_sp .= "</div>";
+                        }
+                            
+                        echo $str_card_sp;
+                    ?>
                 </div>
             </div>
         </div>
@@ -258,11 +228,11 @@
                             <h3>Information</h3>
                             <div class="footer_menu">
                                 <ul>
-                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="#">About Us</a></li>
                                     <li><a href="#">Delivery Information</a></li>
-                                    <li><a href="privacy-policy.php">Privacy Policy</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="contact.php">Contact Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                     <li><a href="#">Returns</a></li>
                                 </ul>
                             </div>
@@ -277,7 +247,7 @@
                                     <li><a href="#">Gift Certificates</a></li>
                                     <li><a href="#">Affiliate</a></li>
                                     <li><a href="#">Specials</a></li>
-                                    <li><a href="contact.php">Site Map</a></li>
+                                    <li><a href="#">Site Map</a></li>
                                     <li><a href="my-account.php">My Account</a></li>
                                 </ul>
                             </div>
@@ -287,9 +257,9 @@
                         <div class="widgets_container contact_us">
                             <h3>Contact Us</h3>
                             <div class="footer_contact">
-                                <p>Address: 6688 Princess Road, London, Greater London BAS 23JK, UK</p>
-                                <p>Phone: <a href="tel:+(+012)800456789-987">(+012) 800 456 789 - 987</a> </p>
-                                <p>Email: demo@example.com</p>
+                                <p>Address: 72A Nui Mot Street, Nha Trang City, Khanh Hoa Province</p>
+                                <p>Phone: <a href="#">037 206 2287</a> </p>
+                                <p>Email: Group11@gmail.com</p>
                                 <ul>
                                     <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#" title="google-plus"><i class="fa fa-google-plus"></i></a></li>
@@ -307,16 +277,7 @@
                <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright_area">
-                            <p> &copy; 2021 <strong> </strong> Mede with ❤️ by <a href="https://hasthemes.com/" target="_blank"><strong>HasThemes</strong></a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer_custom_links">
-                            <ul>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.php">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                            </ul>
+                            <p> &copy; 2022 <strong> </strong> Designed by <strong>VO GIA HUY</strong> & <strong>HOANG QUOC NAM</strong></p>
                         </div>
                     </div>
                 </div>

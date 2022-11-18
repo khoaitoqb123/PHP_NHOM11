@@ -1,11 +1,10 @@
 <?php
-    session_start();
-    include_once('function.php');
+    include_once('../function.php');
     $ql_quanaonam->connectDB();
     $ql_quanaonam->getConnect()->select_db("ql_quanaonam");
-
+    session_start();
 ?>
-<form action="" method="POST">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,17 +12,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
     
     <!-- CSS 
     ========================= -->
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="../assets/css/plugins.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -50,8 +49,8 @@
                                         echo "<ul>";
                                         echo "<li class='top_links'><a href='#'>". $_SESSION['Username'] ."<i class='ion-chevron-down'></i></a>";
                                             echo "<ul class='dropdown_links'>";
-                                                echo "<li><a href='logout.php'>Log out</a></li>";
-                                                echo "<li><a href='admin/product/product_listing.php'>Admin</a></li>" ;
+                                                echo "<li><a href='../logout.php'>Log out</a></li>";
+                                                echo "<li><a href='../admin/product/product_listing.php'>Admin</a></li>" ;
                                             echo "</ul>";
                                         echo "</li>";
                                         echo "</ul>";
@@ -64,7 +63,7 @@
                                         echo "<ul>";
                                         echo "<li class='top_links'><a href='#'>". $_SESSION['Username'] ."<i class='ion-chevron-down'></i></a>";
                                             echo "<ul class='dropdown_links'>";
-                                                echo "<li><a href='logout.php'>Log out</a></li>";
+                                                echo "<li><a href='../logout.php'>Log out</a></li>";
                                             echo "</ul>";
                                         echo "</li>";
                                         echo "</ul>";
@@ -78,7 +77,7 @@
                                     echo "<ul>";
                                     echo "<li class='top_links'><a href='#'> My account <i class='ion-chevron-down'></i></a>";
                                         echo "<ul class='dropdown_links'>";
-                                            echo "<li><a href='login.php'>Log in</a></li>";
+                                            echo "<li><a href='../login.php'>Log in & Register</a></li>";
                                         echo "</ul>";
                                     echo "</li>";
                                     echo "</ul>";
@@ -99,7 +98,7 @@
                             <div class="main_menu"> 
                                 <nav>  
                                     <ul>
-                                        <li class="active"><a href="index_web.php">Home </a></li>
+                                        <li class="active"><a href="../index_web.php">Home </a></li>
                                         <li><a href="shop_category.php">shop </a></li>
                                     </ul>   
                                 </nav> 
@@ -120,7 +119,7 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index_web.php">home</a></li>
+                            <li><a href="../index_web.php">home</a></li>
                             <li>/</li>
                             <li>shop</li>
                         </ul>
@@ -140,32 +139,20 @@
                        <!--sidebar widget start-->
                         <div class="sidebar_widget">
                             <div class="widget_list widget_categories">
-                                <h2>Product categories</h2>
+                                <h2>Danh mục sản phẩm</h2>
                                 <ul>
-                                    <?php
-                                $str_categories = "";
-                                $result = $ql_quanaonam->searchDB("*", "loaihang", "", "");
-                                $countRows = mysqli_num_rows($result);
-                                for ($i = 0; $i < $countRows; $i++) {
-                                    $j = 1;
-                                    
-                                    while (true) {
-                                        if ($rows = mysqli_fetch_array($result)) {
-                                        $str_categories .= "<li><a name='lh_sp' href='#'>$rows[1]</a> </li>";
-                                        }
-                                        if ($j == 1)
-                                        break;
-                                        $j++;
-                                    }
-                                    
-                                }
-                                echo $str_categories;
-                                ?>
+                                <form action="" method="POST">
+                                    <li><a name='lh_sp1' href="shop_category.php">Sơ mi</a> </li>
+                                    <li><a name='lh_sp2' href="shop_category2.php">Quần</a> </li>
+                                    <li><a name='lh_sp3' href="shop_category3.php">Áo thun</a> </li>
+                                    <li><a name='lh_sp4' href="shop_category4.php">Len dệt</a> </li>
+                                    <li><a name='lh_sp5' href="shop_category6.php">Áo khoác</a> </li>
+                                    <li><a name='lh_sp6' href="shop_category6.php">Quần short</a> </li>
+                                    <li><a name='lh_sp7' href="shop_category7.php">Đồ thể thao</a> </li>
+                                    <li><a name='lh_sp8' href="shop_category8.php">Hoodies</a> </li>
+                                </form>
                                 </ul>
                             </div>
-
-                            
-
                         </div>
                         <!--sidebar widget end-->
                     </div>
@@ -176,20 +163,17 @@
                             <h1>shop</h1>
                         </div>
                          <!--shop toolbar end-->
-                        
-                         
-                            <?php
-                                $str_card_sp = "";
-                                $result = $ql_quanaonam->searchDB("*", "mathang", "MaLH", "LH001");
-                                $countRows = mysqli_num_rows($result);
-
-                                for ($i = 0; $i < $countRows; $i++) {
-                                    $j = 1;
-                                    $str_card_sp .= "<div class='row shop_wrapper'>";
-                                    while (true) {
-                                        if ($rows = mysqli_fetch_array($result)) {
-                                            $str_card_sp .= "
-                                            <div class='col-lg-4 col-md-4 col-12'>
+                        <?php
+                            $str_card_sp = "";
+                            $result = $ql_quanaonam->searchDB("*", "mathang", "MaLH", "LH006");
+                            $countRows = mysqli_num_rows($result);
+                            for ($i = 0; $i < $countRows; $i++) {
+                                $j = 1;
+                                $str_card_sp .= "<div class='row shop_wrapper'>";
+                                while (true) {
+                                    if ($rows = mysqli_fetch_array($result)) {
+                                        $str_card_sp .= "
+                                        <div class='col-lg-4 col-md-4 col-12'>
                                             <div class='single_product'>
                                                 <div class='product_thumb'>
                                                     <a class='primary_img' href='product-details.php'><img src='$rows[5]' alt=''></a>
@@ -223,18 +207,17 @@
                                                 
                                             </div>
                                         </div>
-                                            ";
-                                        }
-                                        if ($j == 3)
-                                        break;
-                                        $j++;
-
+                                        ";
                                     }
-                                    $str_card_sp .= "</div>";
+                                    if ($j == 3)
+                                    break;
+                                    $j++;
+
                                 }
-                                echo $str_card_sp;
-                            ?>
-                            
+                                $str_card_sp .= "</div>";
+                            }
+                            echo $str_card_sp;
+                        ?>
                         <!--shop toolbar end-->
                         <!--shop wrapper end-->
                     </div>
@@ -304,16 +287,7 @@
                <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright_area">
-                            <p> &copy; 2021 <strong> </strong> Mede with ❤️ by <a href="https://hasthemes.com/" target="_blank"><strong>HasThemes</strong></a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer_custom_links">
-                            <ul>
-                                <li><a href="#">Order History</a></li>
-                                <li><a href="wishlist.php">Wish List</a></li>
-                                <li><a href="#">Newsletter</a></li>
-                            </ul>
+                            <p> &copy; 2022 <strong> </strong> Designed by <strong>VO GIA HUY</strong> & <strong>HOANG QUOC NAM</strong></p>
                         </div>
                     </div>
                 </div>
@@ -327,12 +301,11 @@
 ============================================ -->
 
 <!-- Plugins JS -->
-<script src="assets/js/plugins.js"></script>
+<script src="../assets/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 
 
 
 </body>
-</form>

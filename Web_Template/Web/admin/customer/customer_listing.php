@@ -15,7 +15,7 @@ include_once('../../function.php');
         <h1>Danh sách khách hàng</h1>
         <div class="customer">
             <form class="form-search" action="" method="GET">
-                <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" class ="form-control" placeholder="Tìm kiếm nhân viên">
+                <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search'];} ?>" class ="form-control" placeholder="Tìm kiếm khách hàng">
                 <button type="submit" class="btn-submit">Search</button>
             </form>
             <div class="buttons">
@@ -23,19 +23,15 @@ include_once('../../function.php');
             </div>
             <ul>
                 <li class="customer-heading">
-                    <div class="customer-prop customer-name">Mã khách hàng</div>
-                    <div class="customer-prop customer-name2">Tên khách hàng</div>
-                    <div class="customer-prop customer-name2">Địa chỉ</div>
-                    <div class="customer-prop customer-name">Điện thoại</div>
+                    <div class="customer-prop customer-name">Mã KH</div>
+                    <div class="customer-prop customer-name2">Tên KH</div>
+                    <div class="customer-prop customer-name3">Địa chỉ</div>
+                    <div class="customer-prop customer-name">SDT</div>
                     <div class="customer-prop customer-name">Username</div>
                     <div class="customer-prop customer-name">Password</div>
-                    <div class="customer-prop customer-name">Phân quyền</div>
-                    <div class="customer-prop customer-button">
-                        Xóa
-                    </div>
-                    <div class="customer-prop customer-button">
-                        Sửa
-                    </div>
+                    <div class="customer-prop customer-name">Quyền</div>
+                    <div class="customer-prop customer-button"></div>
+                    <div class="customer-prop customer-button"></div>
                     <div class="clear-both"></div>
                 </li>
                 <?php
@@ -46,7 +42,7 @@ include_once('../../function.php');
                         <li>
                         <div class="customer-prop customer-name"><?= $row['MaKH'] ?></div>
                         <div class="customer-prop customer-name2"><?= $row['TenKH'] ?></div>
-                        <div class="customer-prop customer-name2"><?= $row['Diachi'] ?></div>
+                        <div class="customer-prop customer-name3"><?= $row['Diachi'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['DienThoai'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['username'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['password'] ?></div>
@@ -67,7 +63,7 @@ include_once('../../function.php');
                     <li>
                         <div class="customer-prop customer-name"><?= $row['MaKH'] ?></div>
                         <div class="customer-prop customer-name2"><?= $row['TenKH'] ?></div>
-                        <div class="customer-prop customer-name2"><?= $row['DiaChi'] ?></div>
+                        <div class="customer-prop customer-name3"><?= $row['DiaChi'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['DienThoai'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['username'] ?></div>
                         <div class="customer-prop customer-name"><?= $row['password'] ?></div>

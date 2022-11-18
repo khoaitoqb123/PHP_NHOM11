@@ -90,7 +90,7 @@ class ql_quanaonam extends SQL{
     }
 
     public function insertKhachHang($MaKH="",$TenKH="",$DiaChi="",$DienThoai="",$username="",$password="",$PhanQuyen=""){
-        $str_query = "INSERT INTO `khachhang`(`MaKH`,`TenKH`,`DiaChi`,`DienThoai`,`username`,'password') VALUES ('$MaKH','$TenKH','$DiaChi','$DienThoai','$username','$password','$PhanQuyen')";
+        $str_query = "INSERT INTO `khachhang`(`MaKH`,`TenKH`,`DiaChi`,`DienThoai`,`username`,`password`,`PhanQuyen`) VALUES ('$MaKH','$TenKH','$DiaChi','$DienThoai','$username','$password','$PhanQuyen')";
         return $this->queryDB($str_query);
     }
     public function updateKhachHang($MaKH="",$TenKH="",$Gioitinh="",$DiaChi="",$DienThoai="",$username="",$password="",$PhanQuyen="")
@@ -128,22 +128,41 @@ class ql_quanaonam extends SQL{
         $str_query = "DELETE FROM `chitiethd` WHERE `MaHD` = '$MaHD' AND `MaMH`='$MaMH'";
         return $this->queryDB($str_query);
     }
-    public function layMaNhanVien()
-    {
-        $lastRow = $this->queryDB("SELECT MaNV FROM nhanvien ORDER BY MaNV DESC LIMIT 1");
-        $last =  implode(mysqli_fetch_array($lastRow));
-        $maMax = substr($last, 2, 3);
-        $maUS = (int)$maMax + 1;
-        return "NV0" . $maUS;
-    }
     public function layMaKhachHang()
     {
         $lastRow = $this->queryDB("SELECT MaKH FROM khachhang ORDER BY MaKH DESC LIMIT 1");
         $last =  implode(mysqli_fetch_array($lastRow));
         $maMax = substr($last, 2, 3);
-        $maUS = (int)$maMax + 1;
-        return "KH0" . $maUS;
+        $MaKH = (int)$maMax + 1;
+        return "KH0" . $MaKH;
     }
+    public function dangkyKhachHang($TenKH="",$DiaChi="",$DienThoai="",$username="",$password="",$xacnhanpassword="",$PhanQuyen="")
+  {
+    if (!$username || !$password || !$TenKH || !$DiaChi || !$DienThoai || !$xacnhanpassword) {
+      return "Please enter full information.";
+    }
+  
+    if (mysqli_num_rows($this->queryDB("SELECT username FROM khachhang WHERE username='$username'")) > 0) {
+      return "Sign In name already exist. Please enter another Sign In name.";
+    }
+  
+    if (!preg_match("/^\\+?[0-9][0-9]{7,12}$/", $DienThoai)) {
+      return "Phone number incorrect. Please enter another phone number.";
+    }
+    
+    if ($password != $xacnhanpassword) {
+      return "Re-type password incorrect.";
+    }
+  
+    $MaKH = $this->layMaKhachHang();
+    @$addKH = $this->insertKhachHang($MaKH, $TenKH, $DiaChi, $DienThoai, $username, $password, $PhanQuyen);
+  
+    if ($addKH) {
+      return "Success";
+    } else {
+      return "Don't have an account?";
+    }
+  }
 }
 $ql_quanaonam = new ql_quanaonam("localhost","root","","ql_quanaonam");
 ?>

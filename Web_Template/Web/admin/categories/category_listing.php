@@ -21,12 +21,8 @@ include_once('../../function.php');
                 <li class="categories-heading">
                     <div class="categories-prop categories-name">Mã loại hàng</div>
                     <div class="categories-prop categories-name2">Tên loại hàng</div>
-                    <div class="categories-prop categories-button">
-                        Xóa
-                    </div>
-                    <div class="categories-prop categories-button">
-                        Sửa
-                    </div>
+                    <div class="categories-prop categories-button"></div>
+                    <div class="categories-prop categories-button"></div>
                     <div class="clear-both"></div>
                 </li>
                 <?php 
@@ -36,10 +32,10 @@ include_once('../../function.php');
                         <div class="categories-prop categories-name"><?= $row['MaLH'] ?></div>
                         <div class="categories-prop categories-name2"><?= $row['TenLH'] ?></div>
                         <div class="categories-prop categories-button">
-                            <a href="./categories_deleting.php?MaMH=<?= $row['MaLH'] ?>">Xóa</a>
+                            <a href="./categories_deleting.php?MaLH=<?= $row['MaLH'] ?>"><button class="btn-submit">Xóa</button></a>
                         </div>
                         <div class="categories-prop categories-button">
-                            <a href="./categories_editing.php?MaMH=<?= $row['MaLH'] ?>">Sửa</a>
+                            <a href="./categories_editing.php?MaLH=<?= $row['MaLH'] ?>"><button class="btn-submit">Sửa</button></a>
                         </div>
                         <div class="clear-both"></div>
                     </li>

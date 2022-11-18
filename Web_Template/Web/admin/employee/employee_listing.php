@@ -22,16 +22,16 @@ include_once('../../function.php');
                 <a href="./employee_adding.php">Thêm nhân viên</a>
             </div>
             <ul>
-                <li class="product-item-heading">
+                <li class="employee-heading">
                     <div class="employee-prop employee-name">Mã NV</div>
                     <div class="employee-prop employee-name2">Tên nhân viên</div>
                     <div class="employee-prop employee-name">Giới tính</div>
                     <div class="employee-prop employee-name3">Địa chỉ</div>
-                    <div class="employee-prop employee-name">SDT</div>
-                    <div class="employee-prop employee-name">Ngày sinh</div>
+                    <div class="employee-prop employee-name4">SDT</div>
+                    <div class="employee-prop employee-name4">Ngày sinh</div>
                     <div class="employee-prop employee-name">Username</div>
                     <div class="employee-prop employee-name">Password</div>
-                    <div class="employee-prop employee-name">Phân quyền</div>
+                    <div class="employee-prop employee-name">Quyền</div>
                     <div class="employee-prop employee-button">
                         Xóa
                     </div>
@@ -50,8 +50,8 @@ include_once('../../function.php');
                         <div class="employee-prop employee-name2"><?= $row['TenNV'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['Gioitinh'] ?></div>
                         <div class="employee-prop employee-name3"><?= $row['Diachi'] ?></div>
-                        <div class="employee-prop employee-name"><?= $row['DienThoai'] ?></div>
-                        <div class="employee-prop employee-name"><?= $row['NgaySinh'] ?></div>
+                        <div class="employee-prop employee-name4"><?= $row['DienThoai'] ?></div>
+                        <div class="employee-prop employee-name4"><?= $row['NgaySinh'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['username'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['password'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['PhanQuyen'] ?></div>
@@ -73,8 +73,8 @@ include_once('../../function.php');
                         <div class="employee-prop employee-name2"><?= $row['TenNV'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['Gioitinh'] ?></div>
                         <div class="employee-prop employee-name3"><?= $row['DiaChi'] ?></div>
-                        <div class="employee-prop employee-name"><?= $row['DienThoai'] ?></div>
-                        <div class="employee-prop employee-name"><?= $row['NgaySinh'] ?></div>
+                        <div class="employee-prop employee-name4"><?= $row['DienThoai'] ?></div>
+                        <div class="employee-prop employee-name4"><?= $row['NgaySinh'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['username'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['password'] ?></div>
                         <div class="employee-prop employee-name"><?= $row['PhanQuyen'] ?></div>
